@@ -1,0 +1,16 @@
+細胞外(Extracell): 0.0526543
+細胞骨幹(Cytoplasm): 0.10630139
+細胞核(Nucleus): 0.12286096
+液泡(Vacuole): 1.6682045e-05
+內質網(Endoplasmic reticulum): 0.05416972
+粒線體(Mitochondrion): 0.06697101
+質膜(Plasma membrane): 0.1704724
+過氧化體(Peroxisome): 2.6427031e-05
+葉綠體(Chloroplast): 0.0071102814
+色素體(Plastid): 0.006740516
+細胞骨幹(Cytoskeleton): 0.031429753
+溶酶體(Lysosome): 4.873179e-07
+高基氏體(Golgi apparatus): 0.09636174
+中心粒(Centriole): 0.28483728
+細胞壁(Cell wall): 4.7036305e-05
+微粒體(Microsome): 1.9373529e-08

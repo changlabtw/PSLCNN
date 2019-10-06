@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Mariposa
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130623
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PSLDoc3</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="static/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<style>
+	td{
+		border: 1px black solid;
+	}
+</style>
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header-wrapper2">
+		<div id="header" class="container">
+			<div id="logo">
+				<h1><a href="#">PSLDoc3</a></h1>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="#" accesskey="1" title="">Homepage</a></li>
+					<li><a href="/psldoc3" accesskey="2" title="">Projects</a></li>
+					<li><a href="/history" accesskey="3" title="">History</a></li>
+					<li><a href="#" accesskey="4" title="">Tutorial</a></li>
+					<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="width:80%; margin:0 auto;" id="wrapper">
+	<div  id="page" class="container">
+		<div style="margin:0 auto;float:none;" id="content">
+			<div class="index">
+				<a href="/goto_searchpost">If you want to analyze new protein sequence,click here.</a>
+			</div>
+			<div class="index">
+				<i class="fa fa-folder"></i> <a href="/result/download_file" download="" id="download">檔案連結</a>
+			</div>
+			<table style="width:100%;">
+				<tr style="text-align: center;background-color: gray;color:white;">
+					<td>Biological process</td>
+					<td>Molecular function</td>
+					<td>Cellular component</td>
+				</tr>
+				<tr>
+					<td>
+						<table id="BP-table" style="margin:0 auto;">
+							<tr>
+								<td>Label</td>
+								<td>Confidence</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table id="MF-table" style="margin:0 auto;">
+							<tr>
+								<td>Label</td>
+								<td>Confidence</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table id="CC-table" style="margin:0 auto;">
+							<tr>
+								<td>Label</td>
+								<td>Confidence</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<div>
+				<img src="{{ base_str }}"/>
+			</div>
+			<div class="index">
+				{% for i in data %}
+				<h5>{{i}}</h5>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="copyright" class="container">
+	<p>&copy; ChangLab. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+<script>
+	var url = location.search;
+	var getSearch = "";
+	var answer = "";
+	if (url.indexOf("?") != -1) {
+		getSearch = url.split("?");
+		console.log(getSearch);
+		answer = getSearch[1].split("=");
+	}
+	var color_list = [{'color': 'orange', 'confidence': 0.89, 'label': 'A01234'},{'color': 'green', 'confidence': 0.67, 'label': 'A05433'},  {'color': 'black', 'confidence': 0.22, 'label': 'A05233'}]
+	temp = document.getElementById("download").href;
+	document.getElementById("download").href = temp + "?id=" + answer[1];
+	document.getElementById("download").download = answer[1] + ".txt";
+	console.log(document.getElementById("download").href);
+	$(document).ready(function(){
+		for(let i = 0;i < color_list.length;i++){
+			$('#BP-table').append('<tr><td style="text-align:center;">'+ color_list[i].label +'</td><td style="text-align:center;"><span style="background-color:'+ color_list[i].color +'">'+color_list[i].confidence +'</span></td></tr>')
+			$('#MF-table').append('<tr><td style="text-align:center;">'+ color_list[i].label +'</td><td style="text-align:center;"><span style="background-color:'+ color_list[i].color +'">'+color_list[i].confidence +'</span></td></tr>')
+			$('#CC-table').append('<tr><td style="text-align:center;">'+ color_list[i].label +'</td><td style="text-align:center;"><span style="background-color:'+ color_list[i].color +'">'+color_list[i].confidence +'</span></td></tr>')
+
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Plasma membrane: 0.14111026
+Cytoplasm: 3.833009e-05
+Extracell: 0.00044525677
+Periplasm: 4.0050545e-09
+Cell wall: 7.151776e-07
+Cytoskeleton: 7.081774e-09
+Vacuole: 6.465529e-07
+Nucleus: 1.4508611e-09
+Mitochondrion: 0.8584048
