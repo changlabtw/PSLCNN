@@ -1,4 +1,5 @@
-# PSLCNN : Protein Subcellular Localization using Convolutional Neural Network
+# PSLCNN
+Protein Subcellular Localization using Convolutional Neural Network
 
 ## Web Service
 Available at https://github.com/changlabtw/PSLCNN.
