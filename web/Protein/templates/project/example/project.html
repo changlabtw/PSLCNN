@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.ziqiangxuetang.com/media/django/csrf.js"></script>
 <link href="static/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="static/fonts.css" rel="stylesheet" type="text/css" media="all" />
 <!--[if IE 6]>
@@ -176,7 +177,19 @@
 			$('#wrapper').hide();
 		})
 	})
-
+	document.getElementById("input_file").onchange = function() {
+		var file = document.getElementById("input_file").files[0];
+		if (file) {
+		    var reader = new FileReader();
+		    reader.readAsText(file, "UTF-8");
+		    reader.onload = function (evt) {
+		        document.getElementById("sequence").innerHTML = evt.target.result;
+		    }
+		    reader.onerror = function (evt) {
+		        document.getElementById("sequence").innerHTML = "error reading file";
+		    }
+		}
+	}
 	function addsample() {
 		document.getElementById("sequence").value =
 			">A0A098\nMASMAAELRPSDGGSSLHMLDSLLMMGLSSGGGVGGGGSSQSQILDSAGAAELAALLLPQHSNDPLHLMS\nTGDAALGLAGPMAAAEHHQHHPHHQHHSVPATAGFPSQTPPPPLFSNATAGAAPATRVRAAGSCGSGGVA\nGGTTSHSSEDGVFHSADPHHHHQQHLQQPQPQQQQQQQQQPQHQQQQQQQQQQQPQQPQFHHHQPQQHQA\nQQAVAATAPAAAADHLFLPPAAAGAAGQQQAGWGAATGAHLFHSDAPNRPNGPKTPTNRNGYAMKPPPPA\nAAAAVMSGHAMAASGVVAGRGGGGGGCDAEEDELTFAAAAAAEVSSDDEVMGGRGGAVMGRAAVGGFRTP\nAPAPASAGAAVNVAAAAPAAPAGTWVPKGKPAVEVSAWAPAPAAPVAAAAAAAVAVSPTVAAFAAAPVVE\nAVALVRSQQRQEQEHQLVQVAAAEQQDQQQAKRPVRSSRRRAQESQQAAAEAQQAAQQAAAAQQQQQHTG\nSGNIVGDKQGKPQGGLQQGRPVATQPSPPPPAVATAAAAAAATAPVATAPVATVATAATADTMPQRLTAV\nQQHEAYPAVVRGTLDVRKACLPRFPLVAREQAEAELQSVATAALQQAAAAPGASAAVTAAAAAAAAAATA\nAGEGKAGEGKAATARRGGRGAAEAEAAAALPAVGASGNPGLDEAMGAYVRVAALYGDEAAAAVAECESLM\nADFDNKLQLGNLATTFAAAASPTAAASGRARGGARSGGVGGGGTKRVASGANASGANSSGMSGGGGGDSA\nGAEAAAGDEMEWAPGATSVDTATGGADDEDGEEEEGQQPGGAAAAAAVAAAGGEASQLAASIAATYGSQL\nVQVAASLAQRPKVGKLPPAATQLLKGWWDDNFVWPYPSEEDKKQLGEAAALNNTQINNWFINQRKRHWHK\nHFPNRRPPSTREEAERLLRAAGAI";

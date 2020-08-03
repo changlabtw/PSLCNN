@@ -23,6 +23,8 @@ Released   : 20130623
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+<script src="https://code.ziqiangxuetang.com/media/django/csrf.js"></script>
+
 <!--[if IE 6]>
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -37,10 +39,10 @@ Released   : 20130623
 			<div id="menu" >
 				<ul>
 					<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-					<li><a href="/psldoc3" accesskey="2" title="">Projects</a></li>
+					<li><a href="/project" accesskey="2" title="">Projects</a></li>
 					<li><a href="/history" accesskey="3" title="">History</a></li>
-					<li><a href="#" accesskey="4" title="">Tutorial</a></li>
-					<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+					<li><a href="/tutorial" accesskey="4" title="">Tutorial</a></li>
+					<li><a href="http://www.changlabtw.com/contact-3287932097.html" accesskey="5" title="">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>
@@ -49,11 +51,11 @@ Released   : 20130623
 <div id="featured-wrapper"  style="padding-top:150px;">
 	<div id="featured" class="container">
 		<div>
-    		<div class="column2" style="margin-left:30%;"><span class="icon icon-cogs"></span>
+    		<div class="column1 project" data-project="psldoc3" style="margin-left:30%;"><span class="icon icon-cogs"></span>
     			<h2>Subcellar Localization Predict</h2>
     		</div>
-    		<div class="column3"><span class="icon icon-suitcase"></span>
-        		<h2>wpSBOOT</h2>
+    		<div class="column2 project" data-project="example"><span class="icon icon-suitcase"></span>
+        		<h2>Example</h2>
                 <!-- <span class="icon icon-group"></span>
     			<h2>ALIGN DNA SEQUENCES</h2> -->
     		</div>
@@ -74,7 +76,7 @@ Released   : 20130623
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac quam risus, at tempus justo. Sed dictum rutrum massa eu volutpat. Quisque vitae hendrerit sem.</p>
 					<ul class="style2">
-						<li><a href="/psldoc3">PSLDOC3</a></li>
+						<li><a href="/project">PSLDOC3</a></li>
 						<li><a href="#">Quam turpis feugiat sit dolor</a></li>
 						<li><a href="#">Amet ornare in hendrerit in lectus</a></li>
 						<li><a href="#">Consequat etiam lorem phasellus</a></li>
@@ -158,8 +160,19 @@ Released   : 20130623
 </body>
 <script>
 	$(document).ready(function(){
-		$('body').on('click','.column1',function(){
-			location.href="/psldoc3"
+		$('body').on('click','.project',function(){
+            var project = $(this).data('project')
+            var data = {
+                project:project
+            }
+            $.post('/change_project',data,function(rsp){
+                console.log(rsp);
+                if(rsp.status){
+                    location.href="/project"
+                } else {
+                    alert("發生錯誤，請確認Project設定！")
+                }
+            })
 		})
 	})
 </script>

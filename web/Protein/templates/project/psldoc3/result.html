@@ -42,10 +42,10 @@ Released   : 20130623
     			<div id="menu">
     				<ul>
     					<li><a href="/home" accesskey="1" title="">Homepage</a></li>
-    					<li><a href="/psldoc3" accesskey="2" title="">Projects</a></li>
+    					<li><a href="/project" accesskey="2" title="">Projects</a></li>
     					<li><a href="/history" accesskey="3" title="">History</a></li>
-    					<li><a href="#" accesskey="4" title="">Tutorial</a></li>
-    					<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+    					<li><a href="/tutorial" accesskey="4" title="">Tutorial</a></li>
+    					<li><a href="http://www.changlabtw.com/contact-3287932097.html" accesskey="5" title="">Contact Us</a></li>
     				</ul>
     			</div>
     		</div>
@@ -84,13 +84,13 @@ Released   : 20130623
                                     <li>
                                         <div style="padding:10px 30px !important;" class="button">序列</div>
                                         <div>
-                                            <i class="fa fa-folder"></i> <a href="/result/download_file" download="" id="download">檔案連結</a>
+                                            <i class="fa fa-folder"></i> <a href="/result/download_file?user_id={{user_id}}&id={{filename}}&type=Output" download="Resultfile.txt" id="download">檔案連結</a>
                                         </div>
                                     </li>
                                     <li>
                                         <div style="padding:10px 30px !important;" class="button">重新預測</div>
                                         <div>
-                                            <a href="/psldoc3">If you want to analyze new protein sequence,click here.</a>
+                                            <a href="/project">If you want to analyze new protein sequence,click here.</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -106,18 +106,7 @@ Released   : 20130623
     	<p>&copy; ChangLab. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
     </div>
 <script>
-	var url = location.search;
-	var getSearch = "";
-	var answer = "";
-	if (url.indexOf("?") != -1) {
-		getSearch = url.split("?");
-		console.log(getSearch);
-		answer = getSearch[1].split("=");
-	}
-	temp = document.getElementById("download").href;
-	document.getElementById("download").href = temp + "?id=" + answer[1];
-	document.getElementById("download").download = answer[1] + ".txt";
-	console.log(document.getElementById("download").href);
+
     $(document).ready(function(){
         $('.prob').each(function(){
             console.log($(this).text())

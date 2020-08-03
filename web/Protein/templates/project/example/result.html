@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Mariposa
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130623
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PSLDoc3</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="static/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<style>
+	td{
+		border: 1px black solid;
+	}
+</style>
+</head>
+<body>
+    <div id="header-wrapper">
+    	<div id="header-wrapper2">
+    		<div id="header" class="container">
+    			<div id="logo">
+    				<h1><a href="#">PSLDOC3</a></h1>
+    			</div>
+    			<div id="menu">
+    				<ul>
+    					<li><a href="/home" accesskey="1" title="">Homepage</a></li>
+    					<li><a href="/project" accesskey="2" title="">Projects</a></li>
+    					<li><a href="/history" accesskey="3" title="">History</a></li>
+    					<li><a href="#" accesskey="4" title="">Tutorial</a></li>
+    					<li><a href="#" accesskey="5" title="">Contact Us</a></li>
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div>
+    	<div style="width:100%;">
+    		<div style="margin:0 auto;text-align:center;width:80%;background-color:white;">
+                <table style="border:none;margin: 0 auto;">
+                    <tr>
+                        <td style="width:50%;border:none;">
+                			<div>
+                                <table style="margin:0 auto;">
+                                    <tr>
+                                        <th>中文名稱</th>
+                                        <th>英文名稱</th>
+                                        <th>信心度</th>
+                                    </tr>
+                                    {% for i in data %}
+                                    <tr>
+                                        <td>{{ i.tw }}</td>
+                                        <td>{{ i.en}}</td>
+                                        <td class="prob">{{ i.prob }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </td>
+                        <td style="text-align:left;width:50%;border:none;">
+                            <div>
+                                <ul style="list-style-type:none">
+                                    <li>
+                                        <div  style="padding:10px 30px !important;" class="button">結果</div>
+                                        <div style="color:#AF2117;"> {{ label }} </div>
+                                    </li>
+                                    <li>
+                                        <div style="padding:10px 30px !important;" class="button">序列</div>
+                                        <div>
+                                            <i class="fa fa-folder"></i> <a href="/result/download_file?user_id={{user_id}}&id={{filename}}&type=Output" download="Resultfile.txt" id="download">檔案連結</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div style="padding:10px 30px !important;" class="button">重新預測</div>
+                                        <div>
+                                            <a href="/project">If you want to analyze new protein sequence,click here.</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    	</div>
+    </div>
+
+    <div id="copyright" class="container">
+    	<p>&copy; ChangLab. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+    </div>
+<script>
+
+    $(document).ready(function(){
+        $('.prob').each(function(){
+            console.log($(this).text())
+            if($(this).text() == '{{ highest_score }}'){
+                $(this).css('background-color','#f56565d1')
+                $(this).css('color','white')
+                $(this).prev().css('background-color','#f56565d1')
+                $(this).prev().css('color','white')
+                $(this).prev().prev().css('background-color','#f56565d1')
+                $(this).prev().prev().css('color','white')
+            }
+        })
+    })
+</script>
+</body>
+</html>

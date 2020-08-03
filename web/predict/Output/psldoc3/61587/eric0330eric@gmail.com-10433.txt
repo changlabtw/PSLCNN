@@ -1,0 +1,16 @@
+Extracell: 0.0526543
+Cytoplasm: 0.10630139
+Nucleus: 0.12286096
+Vacuole: 1.6682045e-05
+Endoplasmic reticulum: 0.05416972
+Mitochondrion: 0.06697101
+Plasma membrane: 0.1704724
+Peroxisome: 2.6427031e-05
+Chloroplast: 0.0071102814
+Plastid: 0.006740516
+Cytoskeleton: 0.031429753
+Lysosome: 4.873179e-07
+Golgi apparatus: 0.09636174
+Centriole: 0.28483728
+Cell wall: 4.7036305e-05
+Microsome: 1.9373529e-08

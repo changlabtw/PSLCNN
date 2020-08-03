@@ -24,12 +24,14 @@ urlpatterns = [
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf import settings
-from Protein.views import history,load_file,search_post,result,upload_file,download_file,goto_searchpost,home
+from Protein.views import tutorial,history,change_project,project,result,upload_file,download_file,goto_searchpost,home
 from django.views.decorators.cache import cache_page
 from django.views.static import serve
 urlpatterns = [
     url(r'^admin/',include(admin.site.urls)),
-    url(r'^psldoc3$', (search_post)),
+    url(r'^project$', (project)),
+    url(r'^tutorial$', (tutorial)),
+    url(r'^change_project$', (change_project)),
     url(r'^home$', (home)),
     url(r'^history$',(history)),
     url(r'^result$',(result)),
@@ -37,7 +39,6 @@ urlpatterns = [
     url(r'^result/download_file$',download_file),
     url(r'^history/upload_file$',(upload_file)),
     url(r'^history/download_file$',download_file),
-    url(r'^loading$',load_file),
+    # url(r'^loading$',load_file),
     url(r'^static/([a-z]+.[a-z]+)',serve,{'document_root':'./images'}),
- # url(r'^', include('course.urls', namespace='course')),
 ]
