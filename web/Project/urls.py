@@ -24,7 +24,7 @@ urlpatterns = [
 from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf import settings
-from Protein.views import tutorial,history,change_project,project,result,upload_file,download_file,goto_searchpost,home
+from Protein.views import redirect,tutorial,history,change_project,project,result,upload_file,download_file,goto_searchpost,home
 from django.views.decorators.cache import cache_page
 from django.views.static import serve
 urlpatterns = [
@@ -41,4 +41,5 @@ urlpatterns = [
     url(r'^history/download_file$',download_file),
     # url(r'^loading$',load_file),
     url(r'^static/([a-z]+.[a-z]+)',serve,{'document_root':'./images'}),
+    url(r'^$',(redirect))
 ]
