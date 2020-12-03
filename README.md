@@ -1,7 +1,7 @@
 # PSLCNN
 Protein Subcellular Localization using Convolutional Neural Network
 
-## Web Service（for psldoc3）
+## Web Service
 Available at http://103.124.72.201:8000/home.
 
 ## Reference
