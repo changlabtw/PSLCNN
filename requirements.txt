@@ -9,7 +9,7 @@ backports.weakref==1.0.post1
 BeautifulSoup==3.2.1
 beautifulsoup4==4.6.3
 
-bleach==3.0.2
+bleach==3.3.0
 cachetools==2.1.0
 certifi==2017.11.5
 cffi==1.12.0
